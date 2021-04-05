@@ -7,20 +7,20 @@
 		<Authors>Andrei Sergeev, Pavel Moskovoy</Authors>
 		<Description>PrimeFuncPack: A Functional Programming Pack for .NET</Description>
 		<Copyright>Copyright © 2020 Andrei Sergeev, Pavel Moskovoy</Copyright>
-		<RootNamespace>PrimeFuncPack.Data.SqlProcedureExecutor.InOut.Tests</RootNamespace>
-		<AssemblyName>EarlyFuncPack.Data.SqlProcedureExecutor.InOut.Tests</AssemblyName>
+		<RootNamespace>PrimeFuncPack.Data.ProcedureExecutor.InOut.Tests</RootNamespace>
+		<AssemblyName>EarlyFuncPack.Data.ProcedureExecutor.InOut.Tests</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EarlyFuncPack.Data.SqlProcedureExecutor.InOut" Version="*-*" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.*" />
-    <PackageReference Include="PrimeFuncPack.UnitTest.Data" Version="2.0.*" />
-    <PackageReference Include="xunit" Version="2.*" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.*">
+    <PackageReference Include="EarlyFuncPack.Data.ProcedureExecutor.InOut" Version="0.0.1-preview.0.0.4" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
+    <PackageReference Include="PrimeFuncPack.UnitTest.Data" Version="2.0.6" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="coverlet.collector" Version="1.*">
+    <PackageReference Include="coverlet.collector" Version="3.0.3">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>

@@ -1,5 +1,6 @@
 #nullable enable
 
+using System;
 using System.Diagnostics.CodeAnalysis;
 
 namespace PrimeFuncPack.Data
@@ -7,10 +8,12 @@ namespace PrimeFuncPack.Data
     public sealed record ProcedureParamIn
     {
         public ProcedureParamIn(
-            [DisallowNull] string name,
+            [AllowNull] string name,
             object? value)
-            =>
-            (Name, Value) = (name.NotEmptyOrThrow(nameof(name)), value);
+        {
+            Name = name.OrEmpty();
+            Value = value;
+        }
 
         public string Name { get; }
 
