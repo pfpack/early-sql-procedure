@@ -8,7 +8,7 @@ namespace PrimeFuncPack.Data
 {
     partial class ProcedureExecutor
     {
-        public ValueTask<Optional<T>> ExecuteScalarAsync<T>(
+        public ValueTask<Optional<DbDataValue>> ExecuteScalarAsync(
             ProcedureRequest procedureRequest,
             CancellationToken cancellationToken)
             =>
@@ -17,9 +17,9 @@ namespace PrimeFuncPack.Data
             .Pipe(
                 _ => ValidateNotDisposed())
             .Pipe(
-                _ => InternalExecuteScalarAsync<T>(procedureRequest, cancellationToken));
+                _ => InternalExecuteScalarAsync(procedureRequest, cancellationToken));
 
-        private async ValueTask<Optional<T>> InternalExecuteScalarAsync<T>(
+        private async ValueTask<Optional<DbDataValue>> InternalExecuteScalarAsync(
             ProcedureRequest procedureRequest,
             CancellationToken cancellationToken)
         {
@@ -28,10 +28,10 @@ namespace PrimeFuncPack.Data
 
             if(await dbDataReader.ReadAsync(cancellationToken).ConfigureAwait(false) is false)
             {
-                return Optional.Absent<T>();
+                return Optional.Absent<DbDataValue>();
             }
 
-            var dbValue = (T)dbDataReader.InternalGetValueOrNull(0)!;
+            var dbValue = new DbDataValue(dbDataReader.GetValue(0));
             return Optional.Present(dbValue);
         }
     }

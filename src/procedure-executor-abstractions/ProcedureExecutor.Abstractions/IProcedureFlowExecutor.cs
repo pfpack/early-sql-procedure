@@ -8,6 +8,6 @@ namespace PrimeFuncPack.Data
 {
     public interface IProcedureFlowExecutor : IDisposable, IAsyncDisposable
     {
-        IAsyncEnumerable<ProcedureItemOut> ExecuteFlowAsync(ProcedureRequest procedureRequest, CancellationToken cancellationToken = default);
+        IAsyncEnumerable<DbDataItem> ExecuteFlowAsync(ProcedureRequest procedureRequest, CancellationToken cancellationToken = default);
     }
 }

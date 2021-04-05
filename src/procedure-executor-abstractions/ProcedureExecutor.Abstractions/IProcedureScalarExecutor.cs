@@ -8,6 +8,6 @@ namespace PrimeFuncPack.Data
 {
     public interface IProcedureScalarExecutor : IDisposable, IAsyncDisposable
     {
-        ValueTask<Optional<T>> ExecuteScalarAsync<T>(ProcedureRequest procedureRequest, CancellationToken cancellationToken);
+        ValueTask<Optional<DbDataValue>> ExecuteScalarAsync(ProcedureRequest procedureRequest, CancellationToken cancellationToken);
     }
 }

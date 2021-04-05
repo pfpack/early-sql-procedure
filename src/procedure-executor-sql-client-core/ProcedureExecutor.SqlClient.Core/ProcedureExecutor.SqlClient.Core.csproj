@@ -11,7 +11,7 @@
     <Copyright>Copyright © 2020 Andrei Sergeev, Pavel Moskovoy</Copyright>
     <RootNamespace>PrimeFuncPack.Data</RootNamespace>
     <AssemblyName>EarlyFuncPack.Data.ProcedureExecutor.SqlClient.Core</AssemblyName>
-    <Version>0.0.1-preview.0.0.1</Version>
+    <Version>0.0.1-preview.0.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="EarlyFuncPack.Data.ProcedureExecutor.Core" Version="0.0.1-preview.0.0.2" />
+    <PackageReference Include="EarlyFuncPack.Data.ProcedureExecutor.Core" Version="0.0.1-preview.0.2.0" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="2.1.2" />
   </ItemGroup>
 

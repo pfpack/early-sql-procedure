@@ -11,7 +11,7 @@ namespace PrimeFuncPack.Data
 {
     partial class ProcedureExecutor
     {
-        public IAsyncEnumerable<ProcedureItemOut> ExecuteFlowAsync(
+        public IAsyncEnumerable<DbDataItem> ExecuteFlowAsync(
             ProcedureRequest procedureRequest,
             CancellationToken cancellationToken = default)
             =>
@@ -22,7 +22,7 @@ namespace PrimeFuncPack.Data
             .Pipe(
                 _ => InternalExecuteFlowAsync(procedureRequest, cancellationToken));
 
-        private async IAsyncEnumerable<ProcedureItemOut> InternalExecuteFlowAsync(
+        private async IAsyncEnumerable<DbDataItem> InternalExecuteFlowAsync(
             ProcedureRequest procedureRequest,
             [EnumeratorCancellation] CancellationToken cancellationToken = default)
         {
@@ -45,15 +45,15 @@ namespace PrimeFuncPack.Data
             }
         }
 
-        private static ProcedureItemOut ReadItemOut(
+        private static DbDataItem ReadItemOut(
             DbDataReader dbDataReader)
             =>
             Enumerable.Range(
                 0, dbDataReader.FieldCount)
             .ToDictionary<int, string, object?>(
                 dbDataReader.GetName,
-                dbDataReader.InternalGetValueOrNull)
+                dbDataReader.GetValue)
             .Pipe(
-                dataSet => new ProcedureItemOut(dataSet));
+                dataSet => new DbDataItem(dataSet));
     }
 }
